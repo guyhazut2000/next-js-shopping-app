@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    align-self: center;
+    justify-self: center;
+    color: rgb(0, 0, 0);
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .submitButton {
+  }
+
+  .formItem {
+    margin-left: 5px;
+  }
+
+  .socialSignUp {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+}
