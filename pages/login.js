@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Login from "../components/Login";
+import LoginForm from "../components/LoginForm";
 
 export default function LoginPage() {
   return (
@@ -8,7 +8,7 @@ export default function LoginPage() {
         <title>Shopping APP</title>
         <meta name="description" content="My Shopping APP" />
       </Head>
-      <Login />
+      <LoginForm />
 
       {/* <footer className={styles.footer}>All Rights Reserved</footer> */}
     </>

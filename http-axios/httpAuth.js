@@ -1,12 +1,10 @@
 import axios from "axios";
 
 export default axios.create({
-  // baseURL: "http://localhost:5000/api",
   baseURL:
-    process.env.NODE_ENV === "production"
-      ? "production url - to be added"
-      : "http://localhost:4040/api",
-  headers: {
-    "Content-type": "application/json",
-  },
+    process.env.NODE_ENV === "development"
+      ? process.env.AUTH_URL
+      : "prod url - to be added",
+
+  "Content-type": "application/json",
 });

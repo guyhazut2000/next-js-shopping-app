@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Box, TextField, Button } from "@mui/material";
 import EmailIcon from "@mui/icons-material/Email";
 
-import styles from "../styles/ForgotPassword.module.scss";
+import styles from "../styles/ForgotPasswordForm.module.scss";
 
-const ForgotPassword = () => {
+const ForgotPasswordForm = () => {
   return (
     <Box className={styles.container}>
       {/* Reset Password Header */}
@@ -34,4 +34,4 @@ const ForgotPassword = () => {
     </Box>
   );
 };
-export default ForgotPassword;
+export default ForgotPasswordForm;

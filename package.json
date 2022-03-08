@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently --kill-others \"nodemon authServer.js\" \"next dev\"",
+    "dev": "concurrently --kill-others \"next dev\" \"cd auth && nodemon authServer.js\" ",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -26,7 +26,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-redux": "^7.2.6",
-    "sass": "^1.49.9"
+    "sass": "^1.49.9",
+    "sweetalert2": "^11.4.4"
   },
   "devDependencies": {
     "eslint": "8.10.0",

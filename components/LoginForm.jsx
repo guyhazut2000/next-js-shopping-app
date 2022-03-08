@@ -16,16 +16,14 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import PersonIcon from "@mui/icons-material/Person";
 import LockIcon from "@mui/icons-material/Lock";
-import EmailIcon from "@mui/icons-material/Email";
+
+import styles from "../styles/LoginForm.module.scss";
 import Link from "next/link";
 
-import styles from "../styles/Register.module.scss";
-
-const SignUp = () => {
+const LoginForm = () => {
   const [values, setValues] = useState({
     username: "",
     password: "",
-    email: "",
     showPassword: false,
   });
 
@@ -45,13 +43,12 @@ const SignUp = () => {
   };
   return (
     <Box className={styles.container}>
-      {/* Register Header */}
-      <h2>Register</h2>
+      {/* Login Header */}
+      <h2>Login</h2>
       {/* Form */}
       <form className={styles.form}>
         {/* Form Item - username */}
         <TextField
-          className={styles.formItem}
           id="outlined-basic"
           label="Username"
           variant="outlined"
@@ -87,27 +84,28 @@ const SignUp = () => {
             />
           </div>
         </FormControl>
-        <TextField
-          className={styles.formItem}
-          id="outlined-basic"
-          label="Email"
-          variant="outlined"
-          InputProps={{
-            startAdornment: <EmailIcon />,
-          }}
-        />
         {/* Link - forgot password */}
-        <div className={styles.login}>
-          <h3>Already have an account?</h3>
-          <Link href="/login">Sign In</Link>
-        </div>
+        <Link href="/forgot-password">Forgot password?</Link>
         {/* Button - login */}
-        <Button className={styles.signUpButton} variant="contained">
-          Create Account
+        <Button className={styles.submitButton} variant="contained">
+          Login
         </Button>
+        <h3>Or Sign Up using</h3>
+        <div className={styles.socialSignUp}>
+          {/* Social Icons - sign up  */}
+          {/* Social icon - facebook */}
+          <h3>facebook</h3>
+          {/* Social icon - Github */}
+          <h3>Github</h3>
+          {/* Social icon - Google */}
+          <h3>Google</h3>
+        </div>
+        <h3>Or Sign Up using</h3>
+        {/* Link - normal sign up  */}
+        <Link href="/register"> Sign Up</Link>
       </form>
     </Box>
   );
 };
 
-export default SignUp;
+export default LoginForm;
