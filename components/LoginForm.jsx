@@ -19,13 +19,27 @@ import LockIcon from "@mui/icons-material/Lock";
 
 import styles from "../styles/LoginForm.module.scss";
 import Link from "next/link";
+import UserController from "../services/UserController";
+import { useRouter } from "next/router";
+import Swal from "sweetalert2";
 
+/**
+ *
+ * TODO:
+ * add input validation, input errors.
+ * fix css style
+ * add user authentication and tokens
+ * add redux
+ * add google, facebook, github sign up
+ */
 const LoginForm = () => {
   const [values, setValues] = useState({
-    username: "",
+    email: "",
     password: "",
     showPassword: false,
   });
+
+  const router = useRouter();
 
   const handleChange = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
@@ -41,6 +55,41 @@ const LoginForm = () => {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+
+  const handleLogin = async (event) => {
+    event.preventDefault();
+    try {
+      const user = await UserController.login({
+        email: values.email,
+        password: values.password,
+      });
+      if (
+        user.data === null &&
+        user.data.loginStatus === "failed" &&
+        user.status === 200
+      ) {
+        Swal.fire("Login Error", user.errorMessage, "error");
+        return;
+      }
+      // if user exists move to home page.
+      if (user) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "User Logged in successfully.\nMoving to Home Page.",
+          showConfirmButton: false,
+          timer: 2000,
+        });
+        // window.location.reload();
+        setTimeout(function () {
+          router.push("/home");
+        }, 2000);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Box className={styles.container}>
       {/* Login Header */}
@@ -50,8 +99,9 @@ const LoginForm = () => {
         {/* Form Item - username */}
         <TextField
           id="outlined-basic"
-          label="Username"
+          label="Email"
           variant="outlined"
+          onChange={handleChange("email")}
           InputProps={{
             startAdornment: <PersonIcon />,
           }}
@@ -87,7 +137,11 @@ const LoginForm = () => {
         {/* Link - forgot password */}
         <Link href="/forgot-password">Forgot password?</Link>
         {/* Button - login */}
-        <Button className={styles.submitButton} variant="contained">
+        <Button
+          className={styles.submitButton}
+          variant="contained"
+          onClick={handleLogin}
+        >
           Login
         </Button>
         <h3>Or Sign Up using</h3>

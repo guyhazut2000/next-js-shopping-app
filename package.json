@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently --kill-others \"next dev\" \"cd auth && nodemon authServer.js\" ",
+    "dev":"next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

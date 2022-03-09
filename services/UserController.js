@@ -3,15 +3,15 @@ import httpAuth from "../http-axios/httpAuth";
 
 class UserController {
   register(data) {
-    return httpAuth.post("/register", data);
+    return http.post("/register", data);
   }
   // login user
   login(data) {
-    return httpAuth.post("/login", data);
+    return http.post("/login", data);
   }
   // logout user
   logout(data) {
-    return httpAuth.post("/users/logout", data);
+    return http.post("/users/logout", data);
   }
 }
 

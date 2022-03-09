@@ -23,7 +23,11 @@ import Link from "next/link";
 
 import styles from "../styles/SignUpForm.module.scss";
 import UserController from "../services/UserController";
-
+/**
+ * TODO:
+ * add input validation
+ * fix css style
+ */
 const SignUpForm = () => {
   const [values, setValues] = useState({
     username: "",

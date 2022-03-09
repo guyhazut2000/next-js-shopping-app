@@ -1,16 +1,18 @@
 
-POST http://localhost:3000/api/login
-Authorization: Bearer asdsadsadsadasdsadas
+
+// auth server request
+POST http://localhost:3000/api/register
 Content-Type: application/json
 
 {
-    "username":"guy"
+    "username":"guy",
+    "password":"guy",
+    "email":"guyhazut2000d@gmail.com"
 }
 
 ###
-
 // auth server request
-POST http://localhost:4040/api/register
+POST http://localhost:3000/api/login
 Content-Type: application/json
 
 {
