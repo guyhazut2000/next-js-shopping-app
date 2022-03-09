@@ -6,6 +6,13 @@ import EmailIcon from "@mui/icons-material/Email";
 
 import styles from "../styles/ForgotPasswordForm.module.scss";
 
+/**
+ *
+ * TODO:
+ * add functionality for forgot password
+ * add email validator
+ * fix css style
+ */
 const ForgotPasswordForm = () => {
   return (
     <Box className={styles.container}>
