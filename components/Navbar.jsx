@@ -12,14 +12,18 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import styles from "../styles/Navbar.module.scss";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
-const pages = ["Products", "Men", "Women"];
+const pages = ["Home", "Products", "Men", "Women"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const Navbar = () => {
   const user = true;
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const router = useRouter();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -80,7 +84,16 @@ const Navbar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Link
+                    href={
+                      page.toLowerCase() === "women" ||
+                      page.toLowerCase() === "men"
+                        ? `/products/${page.toLowerCase()}`
+                        : `/${page.toLowerCase()}`
+                    }
+                  >
+                    {page}
+                  </Link>
                 </MenuItem>
               ))}
             </Menu>
@@ -100,7 +113,16 @@ const Navbar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                {page}
+                <Link
+                  href={
+                    page.toLowerCase() === "women" ||
+                    page.toLowerCase() === "men"
+                      ? `/products/${page.toLowerCase()}`
+                      : `/${page.toLowerCase()}`
+                  }
+                >
+                  {page}
+                </Link>
               </Button>
             ))}
           </Box>
@@ -111,7 +133,7 @@ const Navbar = () => {
           >
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="guy hazut" src="/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu

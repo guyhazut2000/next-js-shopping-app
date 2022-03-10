@@ -3,8 +3,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/",
-        destination: "/login",
+        source: "/home",
+        destination: "/",
         permanent: true,
       },
     ];
@@ -21,6 +21,9 @@ const nextConfig = {
     // Will only be available on the server side
     mySecret: "secret",
     secondSecret: process.env.ACCESS_TOKEN_SECRET, // Pass through env variables
+  },
+  images: {
+    domains: ["localhost", "is4.revolveassets.com"],
   },
 };
 

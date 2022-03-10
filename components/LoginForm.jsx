@@ -82,7 +82,7 @@ const LoginForm = () => {
         });
         // window.location.reload();
         setTimeout(function () {
-          router.push("/home");
+          router.push("/");
         }, 2000);
       }
     } catch (error) {
